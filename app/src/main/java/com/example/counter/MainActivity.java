@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView countText;
     private Button plus1Button;
     private Button minus1Button;
+    private Button resetButton;
     int number;
 
     @Override
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         countText = (TextView)findViewById(R.id.text);
         plus1Button = (Button)findViewById(R.id.plus1);
         minus1Button = (Button)findViewById(R.id.minus1);
+        resetButton = (Button)findViewById(R.id.reset);
         // 変数numberに0を代入する
         number = 0;
 
@@ -36,11 +38,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //minusButtonの処理
+        // minusButtonの処理
         minus1Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 number--;
+                countText.setText(number + "");
+            }
+        });
+
+        // resetButtonの処理
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // RESETボタンが押されたとき,numberを初期化する
+                number = 0;
                 countText.setText(number + "");
             }
         });
